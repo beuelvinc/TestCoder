@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content%}
+<div class="text-center">
+
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if user_profile.picture %}
+        
+        <img src="{{user_profile.picture.url}}" width="250px" height="250px" class="rounded" > 
+        
+        {% else %}
+        <img src="https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg" class="rounded" > 
+
+        {% endif %}
+
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">{{user_obj.id}}</th>
+                <td>{{user_obj.username}}</td>
+                <td>{{user_obj.email}}</td>
+              </tr>
+            
+            </tbody>
+          </table>
+
+          <a class="nav-item nav-link contact-button" href="{% url 'main:edit_profile_page' %}">edit your profile</a>
+
+
+</div>
+{% endblock content%}

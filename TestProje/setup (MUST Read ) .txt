@@ -1,0 +1,36 @@
+To run this code, you have install requirements.txt by running pip install -r requirements.txt (better to run in virtual env)
+
+I have used this project with Postgresql but to avoid anycomplications I send sqlite version to you.
+
+You should run python manage.py runserver
+
+and start checking
+
+admin credentials
+
+username:admin 
+password:admin
+
+you can also create first user by running (python manage.py createsuperuser)
+
+data manager credentials:
+
+username: elvinriga
+password: elvin123
+
+
+
+
+
+If you want to create your own database, then you should use 
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+python manage.py createsuperuser
+
+keep in mind first user must be created by using (python manage.py createsuperuser)
+
+
+

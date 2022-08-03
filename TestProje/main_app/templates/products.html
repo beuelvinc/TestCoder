@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content%}
+
+    <div class="col-md-6 offset-4"> 
+
+        <h2><a href="{% url 'main:create_product' %}" class="href"> Create Product </a></h2>
+        <form action="{% url 'main:product_page' %}" method="get">
+            <input
+              type="search"
+              name="q"
+              placeholder="Search by text"
+              class="form-control"
+            />
+
+            <input
+              type="submit"
+              value="search"
+            />
+          </form>
+          
+    {% for obj in products %}
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{obj.image_product.url}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{obj.name}}</h5>
+          <p class="card-text">{{obj.description|truncatechars:30}}</p>
+          <a href="{% url 'main:product_detail' obj.id %}" class="btn btn-primary">Open</a>
+        </div>
+      </div>
+
+    {% endfor  %}
+</div>
+<br>
+
+{% endblock content%}

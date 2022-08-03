@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+
+{% block content%}
+<p class="text-center">
+    
+    Center aligned text on all viewport sizes.
+
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+
+</p>
+
+
+
+{% endblock content%}
+
+
